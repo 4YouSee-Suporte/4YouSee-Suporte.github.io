@@ -1,1 +1,27 @@
+title: 4YouSee API Manager
+lang: en
+description: Documentação não oficial da API de 4YouSee Manager.
+
 remote_theme: rundocs/jekyll-rtd-theme
+
+readme_index:
+  with_frontmatter: true
+
+translate:
+  # shortcodes
+  danger:
+  note:
+  tip:
+  warning:  # 404
+  not_found:  # copyright
+  revision:  # search
+  searching: Pesquisando
+  search: Pesquisa
+  search_docs: Pesquisar
+  search_results: Resultados da Pesquisa
+  search_results_found: #
+  search_results_not_found: A sua pesquisa não encontrou nenhum resultado, certifique-se de que todos os caracteres estão escritos corretamente!
+
+exclude:
+  - CNAME
+  - LICENSE

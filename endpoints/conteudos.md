@@ -6,13 +6,14 @@ sort: 3
 
 O processo de adicionar um conteúdo na conta consiste em carregar o arquivo e logo estabelecer os parámetros que terá esse conteúdo na biblioteca de conteúdos.
 
-# Carregar Arquivo
+## Carregar Arquivo
 
 Fazer o upload do arquivo (.html, .zip .mp3, .mp4, .png, .jpg) na conta. Esses conteúdos serão carregados mas não adicionados na biblioteca de conteúdos.
 
-## GET
+### GET
 
 Obter a lista dos conteúdos carregados na conta. 
+
 endpoint: `https://api.4yousee.com.br/v1/uploads`
 
 ```python
@@ -32,9 +33,10 @@ response = requests.request("GET", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-## POST
+### POST
 
 Carregar o conteúdo na conta para que fique disponível para ser adicionado.
+
 endpoint: `https://api.4yousee.com.br/v1/uploads/{uploadId}`
 
 ```python
@@ -52,13 +54,14 @@ response = requests.request("DELETE", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-## DEL
+### DEL
 
 Exclui um conteúdo carregado que ainda não foi configurado como um conteúdo da Biblioteca.
+
 endpoint: `https://api.4yousee.com.br/v1/uploads/{uploadId}`
 
 ```tip
-Para deletar um conteúdo existente da biblioteca você precisa consultar o 
+Para deletar um conteúdo existente da biblioteca você precisa consultar o [Deletar arquivo da Biblioteca](https://4yousee-suporte.github.io/endpoints/conteudos.html#del-1)
 ```
 
 ```python
@@ -76,23 +79,24 @@ response = requests.request("DELETE", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-# Biblioteca de Conteúdos
+## Biblioteca de Conteúdos
 
 A biblioteca de conteúdos são aqueles conteúdos que se encontram na plataforma com um id e ao menos uma categoria associado a ele.
 
-## GET
-
-## POST
-
-## Conteúdos Individuais
-
 ### GET
-
-endpoint: `https://api.4yousee.com.br/v1/medias/{{mediaId}}`
 
 ### POST
 
+### Conteúdos Individuais
+
+#### GET
+
 endpoint: `https://api.4yousee.com.br/v1/medias/{{mediaId}}`
 
-### DEL
+#### POST
+
+endpoint: `https://api.4yousee.com.br/v1/medias/{{mediaId}}`
+
+#### DEL
+
 endpoint: `https://api.4yousee.com.br/v1/medias/{{mediaId}}`

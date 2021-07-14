@@ -37,22 +37,75 @@ print(response.text)
 
 Carregar o conteúdo na conta para que fique disponível para ser adicionado.
 
-endpoint: `https://api.4yousee.com.br/v1/uploads/{uploadId}`
+endpoint: `https://api.4yousee.com.br/v1/uploads/`
+
+#### Carregando uma imagem
 
 ```python
 import requests
 
-url = "https://api.4yousee.com.br/v1/uploads/00fa6bba3bb250012278ae03754ad1bb"
+url = "https://api.4yousee.com.br/v1/uploads"
 
-payload={}
+payload={'Content-Type': 'multipart/form-data;'}
+files=[
+  ('media',('4yousee.png',open('/C:/Users/Alfonso/Pictures/4yousee.png','rb'),'image/png'))
+]
 headers = {
-  'Secret-Token': '2848d026950a961c15b3518901a54741'
+  'Content-Type': 'application/x-www-form-urlencoded',
+  'Secret-Token': 'ca0c685c9b24310e6d08533a73c967db'
 }
 
-response = requests.request("DELETE", url, headers=headers, data=payload)
+response = requests.request("POST", url, headers=headers, data=payload, files=files)
 
 print(response.text)
 ```
+
+#### Resposta ao carregar uma imagem
+
+```python
+{
+    "id": "8e5e3ba750d619d6b827a96351ae33e9",
+    "filename": "4yousee.png"
+}
+```
+
+#### Carregando um video
+
+```python
+import requests
+
+url = "https://api.4yousee.com.br/v1/uploads"
+
+payload={'Content-Type': 'multipart/form-data;'}
+files=[
+  ('media',('4YouSee Colors.mp4',open('/C:/Users/Alfonso/Videos/4YouSee Colors.mp4','rb'),'application/octet-stream'))
+]
+headers = {
+  'Content-Type': 'application/x-www-form-urlencoded',
+  'Secret-Token': 'ca0c685c9b24310e6d08533a73c967db'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload, files=files)
+
+print(response.text)
+
+```
+
+#### Resposta ao carregar um video
+
+```python
+{
+    "id": "0e8c712c92dfba83d5614b0fc1cdb8b1",
+    "filename": "4YouSee Colors.mp4"
+}
+```
+
+#### Erros
+
+`{"message":"Upload file is empty. Check the documentation for this resource for more information"}`
+
+Voce deve verificar a rota do arquivo.
+
 
 ### DEL
 
@@ -67,7 +120,7 @@ Para deletar um conteúdo existente da biblioteca você precisa consultar o [Del
 ```python
 import requests
 
-url = "https://api.4yousee.com.br/v1/uploads/00fa6bba3bb250012278ae03754ad1bb"
+url = "https://api.4yousee.com.br/v1/uploads/00fa6bba3bb250012278ae03754ad1bb"  # Esse id é o recebido na resposta ao fazer o post de carregar a media.
 
 payload={}
 headers = {

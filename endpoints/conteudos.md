@@ -228,7 +228,7 @@ response = requests.request("POST", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-#### Resposta de Conteúdo Adicionado na Biblioteca
+Resposta de Conteúdo Adicionado na Biblioteca
 
 ```python
 {
@@ -279,13 +279,15 @@ print(response.text)
 
 #### DEL
 
-O seguinte exemplo vai eliminar o conteúdo de id 5.
+Exclui um conteúdo da biblioteca de conteúdos.
 
 endpoint: `https://api.4yousee.com.br/v1/medias/{{mediaId}}`
 
 ```warning
-esta operação, uma vez realizada, não pode ser desfeita.
+Esta operação, uma vez realizada, não pode ser desfeita.
 ```
+
+O seguinte exemplo vai eliminar o conteúdo de id 5.
 
 ```python
 import requests
@@ -339,7 +341,7 @@ response = requests.request("PUT", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-#### Resposta ao Alterar um Conteúdo
+Resposta ao Alterar um Conteúdo
 
 ```python
 {

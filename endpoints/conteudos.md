@@ -230,7 +230,7 @@ print(response.text)
 
 #### Resposta de Conteúdo Adicionado na Biblioteca
 
-```
+```python
 {
   "id": 5,
   "name": "4YouSee Sample Media",
@@ -260,7 +260,7 @@ O seguinte exemplo vai trazer as informações do contéudo de id 5.
 
 endpoint: `https://api.4yousee.com.br/v1/medias/{{mediaId}}`
 
-```{python, class.output="scroll-100"}
+```python
 import requests
 import json
 

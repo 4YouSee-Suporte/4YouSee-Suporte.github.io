@@ -306,7 +306,7 @@ response = requests.request("DELETE", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-### PUT
+#### PUT
 
 Altera as propriedades de uma mídia existente na biblioteca de conteúdos.
 

@@ -258,7 +258,7 @@ Resposta de Conteúdo Adicionado na Biblioteca
 
 O seguinte exemplo vai trazer as informações do contéudo de id 5.
 
-endpoint: `https://api.4yousee.com.br/v1/medias/{{mediaId}}`
+endpoint: `https://api.4yousee.com.br/v1/medias/{mediaId}`
 
 ```python
 import requests
@@ -281,7 +281,7 @@ print(response.text)
 
 Exclui um conteúdo da biblioteca de conteúdos.
 
-endpoint: `https://api.4yousee.com.br/v1/medias/{{mediaId}}`
+endpoint: `https://api.4yousee.com.br/v1/medias/{mediaId}`
 
 ```warning
 Esta operação, uma vez realizada, não pode ser desfeita.
@@ -310,7 +310,7 @@ print(response.text)
 
 Altera as propriedades de uma mídia existente na biblioteca de conteúdos.
 
-endpoint: `https://api.4yousee.com.br/v1/medias/{{mediaId}}`
+endpoint: `https://api.4yousee.com.br/v1/medias/{mediaId}`
 
 Os parámetros para adicionar dentro do payload são:
 

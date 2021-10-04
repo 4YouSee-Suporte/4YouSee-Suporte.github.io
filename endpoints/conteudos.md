@@ -32,6 +32,37 @@ response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+<details>
+  <summary>Resposta para ver todas as midias!</summary>
+  
+  ```json
+    {
+    "results": [
+        {
+            "id": 11,
+            "name": "audifonos_samsung",
+            "description": "audifonos_samsung",
+            "file": "i_11.mp4",
+            "durationInSeconds": 10,
+            "categories": [
+                {
+                    "id": 11,
+                    "name": "Loja 1"
+                }
+            ],
+            "schedule": {
+                "startDate": null,
+                "endDate": null,
+                "times": []
+            }
+        }
+    ],
+    "total": 1,
+    "currentPage": 1,
+    "totalPages": 1
+}
+  ```
+</details>
 
 ### POST
 
@@ -60,14 +91,16 @@ response = requests.request("POST", url, headers=headers, data=payload, files=fi
 print(response.text)
 ```
 
-#### Resposta ao carregar uma imagem
-
-```python
-{
+<details>
+  <summary>Resposta ao carregar uma imagem</summary>
+  
+  ```
+   {
     "id": "8e5e3ba750d619d6b827a96351ae33e9",
     "filename": "4yousee.png"
-}
-```
+  }
+  ```
+</details>
 
 #### Carregando um video
 
@@ -91,26 +124,34 @@ print(response.text)
 
 ```
 
-#### Resposta ao carregar um video
-
-```python
-{
+<details>
+  <summary>Resposta ao carregar um video</summary>
+  
+  ```
+   {
     "id": "0e8c712c92dfba83d5614b0fc1cdb8b1",
     "filename": "4YouSee Colors.mp4"
-}
-```
+  }
+  ```
+</details>
 
 #### Erros
 
-`{"message":"Upload file is empty. Check the documentation for this resource for more information"}`
+Se o seguinte erro acontecer, você deve verificar a rota do arquivo.
 
-Voce deve verificar a rota do arquivo.
+```alert
+{"message":"Upload file is empty. Check the documentation for this resource for more information"}
+```
 
-`{"message":"File type not allowed. Check the documentation for this resource for more information"}`
+Se algum dos seguintes erros acontecerem, você deve verificar que está sendo enviado no header o `'Content-Type': 'application/x-www-form-urlencoded',`
 
-`{"message":"An unexpected error occurred","detail":"no decode delegate for this image format ' @ error\/constitute.c\/ReadImage\/504"}`
+```alert
 
-Certificar-se de que está sendo enviado no header o `'Content-Type': 'application/x-www-form-urlencoded',`
+{"message":"File type not allowed. Check the documentation for this resource for more information"}
+
+{"message":"An unexpected error occurred","detail":"no decode delegate for this image format ' @ error\/constitute.c\/ReadImage\/504"}
+
+````
 
 ### DEL
 

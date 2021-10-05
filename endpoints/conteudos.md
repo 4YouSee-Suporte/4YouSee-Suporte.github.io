@@ -35,12 +35,33 @@ print(response.text)
 
 #### Resposta para ver todas as midias:
   
-<script src="https://gist.github.com/Alfareiza/7a34c719dc144f058a4f189786dd127d.js"></script>
+Se há midias carregadas, a resposta será com a seguinte estrutura:
 
-#### Resposta v2.
+```json
+{
+  "results": [
+    {
+      "id": "0e8c712c92dfba83d5614b0fc1cdb8b1",
+      "filename": "4YouSee Colors.mp4"
+    },
+    {
+      "id": "f1b730afc8c113a873739410006aa135",
+      "filename": "arte_2.png"
+    }
+  ],
+  "total": 4
+}
 
-{% gist c08ee0f2726fd0e3909d %}
+```
 
+Se não há midias carregadas, a resposta será com a seguinte estrutura:
+
+```json
+{
+    "results": [],
+    "total": 0
+}
+```
 
 ### POST
 
@@ -151,6 +172,18 @@ response = requests.request("DELETE", url, headers=headers, data=payload)
 print(response.text)
 ```
 
+#### Resposta ao deletar um upload
+
+Se a exclusão foi exitosa o `status_code` da resposta é `204` o que significa que foi processado com sucesso, porém não há conteúdo na resposta.
+
+Se não, a resposta será a seguinte, com `status_code` igual a `404`:
+
+```
+{
+    "message": "Upload file not found"
+}
+```
+
 ## Biblioteca de Conteúdos
 
 A biblioteca de conteúdos são aqueles conteúdos que se encontram na plataforma com um id e ao menos uma categoria associado a ele.
@@ -187,9 +220,26 @@ response = requests.request("GET", url, headers=headers, data=payload)
 print(response.text)
 ```
 
+#### Resposta com todas as midias
+
+Se a conta possui conteúdos, a resposta será com a seguinte estrutura:
+
+[Gist com a resposta das midias](https://gist.github.com/Alfareiza/65e6bdcc5d4a7b752d6e68931143ce61#gistcomment-3916499)
+
+Se não, a resposta será a seguinte, com `status_code` igual a `200`:
+
+```json
+{
+    "results": [],
+    "total": 0,
+    "currentPage": 1,
+    "totalPages": 0
+}
+```
+
 ### POST
 
-Cria uma nova mídia, conseguindo adicionar esse arquivo carregado anteriormente para a biblioteca de conteúdos.
+Cria uma nova mídia, conseguindo adicionar o arquivo carregado anteriormente para a biblioteca de conteúdos.
 
 endpoint: `https://api.4yousee.com.br/v1/medias/`
 
@@ -241,7 +291,7 @@ response = requests.request("POST", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-Resposta de Conteúdo Adicionado na Biblioteca
+#### Resposta de Conteúdo Adicionado na Biblioteca
 
 ```python
 {
@@ -290,6 +340,64 @@ response = requests.request("GET", url, headers=headers, data=payload)
 print(response.text)
 ```
 
+#### Resposta para ver uma mídia
+
+Se a mídia existe, a resposta será com a seguinte estrutura:
+
+```json
+{
+    "id": 1,
+    "name": "4YouSee Play",
+    "description": "4YouSee Play",
+    "file": "i_1.mp4",
+    "durationInSeconds": 10,
+    "categories": [
+        {
+            "id": 1,
+            "name": "DEMO"
+        },
+        {
+            "id": 11,
+            "name": "Cliente 1"
+        }
+    ],
+    "schedule": {
+        "startDate": "2021-06-25",
+        "endDate": "2021-06-30",
+        "times": [
+            {
+                "startTime": "06:00",
+                "endTime": "23:00",
+                "weekDays": [
+                    0,
+                    2,
+                    3,
+                    5
+                ]
+            },
+            {
+                "startTime": "09:00",
+                "endTime": "23:00",
+                "weekDays": [
+                    1,
+                    4,
+                    6
+                ]
+            }
+        ]
+    }
+}
+```
+
+Se não existe a mídia, a resposta será a seguinte, com `status_code` igual a `404`:
+
+```json
+{
+    "message": "Media with ID 330 was not found"
+}
+```
+
+
 #### DEL
 
 Exclui um conteúdo da biblioteca de conteúdos.
@@ -318,6 +426,37 @@ response = requests.request("DELETE", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+
+#### Resposta ao deletar uma mídia
+
+Se a mídia foi deletada com sucesso, a resposta será com a seguinte estrutura:
+
+```json
+{
+    "id": 52,
+    "name": "guasn",
+    "file": "https://4usee.com/alfareiza-3385E2/alfareiza/common/videos/i_52.mp4",
+    "duration": 10,
+    "schedule": {
+        "startDate": null,
+        "endDate": null,
+        "times": []
+    },
+    "categories": [
+        1
+    ]
+}
+```
+
+Se não existe a mídia, a resposta será a seguinte, com `status_code` igual a `400`:
+
+```json
+{
+    "error": "C004",
+    "message": "Resource not found."
+}
+```
+
 
 #### PUT
 
@@ -354,7 +493,7 @@ response = requests.request("PUT", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-Resposta ao Alterar um Conteúdo
+#### Resposta ao Alterar um Conteúdo
 
 ```python
 {

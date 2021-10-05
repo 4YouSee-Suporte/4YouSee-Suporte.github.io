@@ -33,7 +33,7 @@ response = requests.request("GET", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-#### Resposta para ver todas as midias:
+#### Resposta para ver todos os uploads:
   
 Se há midias carregadas, a resposta será com a seguinte estrutura:
 
@@ -49,7 +49,7 @@ Se há midias carregadas, a resposta será com a seguinte estrutura:
       "filename": "arte_2.png"
     }
   ],
-  "total": 4
+  "total": 2
 }
 
 ```

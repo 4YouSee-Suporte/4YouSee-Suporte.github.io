@@ -4,9 +4,9 @@ sort: 1
 
 # Users
 
-### GET 
+## GET 
 
-#### Todos os usuários
+### Todos os usuários
 
 Obter a lista dos usuários registrados na conta.
 

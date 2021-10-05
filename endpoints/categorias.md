@@ -1,3 +1,7 @@
+---
+sort: 4
+---
+
 # Categorias
 
 As categorias são "pastas" que armazenam conteúdos dentro delas. Dessa forma facilita a organização de mídias no 4yousee manager.
@@ -25,39 +29,6 @@ print(response.text)
 
 [Resposta para ver todas as categorias da conta.](https://gist.github.com/Alfareiza/81849492b4c0169faeb930d4c5422ffe#gistcomment-3917521)
 
-
-## POST
-
-Cria uma nova categoria. É possível criar uma categoria de primeiro nível ou uma subcategoria
-
-endpoint: `https://api.4yousee.com.br/v1/medias/categories/`
-
-Atributos do Payload
-- name (String, obrigatório) Nome de exibição da categoria/subcategoria
-- description (String) - Descrição detalhada da categoria
-- parent (Number) - Quando informado cria uma subcategoria
-
-```python
-import requests
-import json
-
-url = "https://api.4yousee.com.br/v1/medias/categories/"
-
-payload = json.dumps({
-  "name": "Marketing",
-  "description": "Content related to market of company",
-  "parent": 24
-})
-headers = {
-  'Content-Type': 'application/json'
-}
-
-response = requests.request("POST", url, headers=headers, data=payload)
-
-print(response.text)
-```
-
-Resposta ao criar uma categoria
 
 ## Categorias Individuais
 
@@ -104,7 +75,38 @@ Se a categoría não existe, a resposta com `status_code` igual a `404` será a 
 }
 ```
 
-## PUT
+### POST
+
+Cria uma nova categoria. É possível criar uma categoria de primeiro nível ou uma subcategoria
+
+endpoint: `https://api.4yousee.com.br/v1/medias/categories/`
+
+Atributos do Payload
+- name (String, obrigatório) Nome de exibição da categoria/subcategoria
+- description (String) - Descrição detalhada da categoria
+- parent (Number) - Quando informado cria uma subcategoria
+
+```python
+import requests
+import json
+
+url = "https://api.4yousee.com.br/v1/medias/categories/"
+
+payload = json.dumps({
+  "name": "Marketing",
+  "description": "Content related to market of company",
+  "parent": 24
+})
+headers = {
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+print(response.text)
+```
+
+### PUT
 
 Atualiza uma categoría. É possível atualizar o nome, a descrição, o pai da categoria, updateflow, sequence e autoShuffle.
 

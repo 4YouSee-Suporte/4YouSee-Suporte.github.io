@@ -33,7 +33,7 @@ response = requests.request("GET", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-#### Resposta para ver todos os uploads:
+Resposta para ver todos os uploads:
   
 Se há midias carregadas, a resposta será com a seguinte estrutura:
 
@@ -90,7 +90,7 @@ response = requests.request("POST", url, headers=headers, data=payload, files=fi
 print(response.text)
 ```
 
-#### Resposta ao carregar uma imagem
+Resposta ao carregar uma imagem
   
   ```
    {
@@ -121,7 +121,7 @@ print(response.text)
 
 ```
 
-#### Resposta ao carregar um video
+Resposta ao carregar um video
   
   ```
    {
@@ -172,7 +172,7 @@ response = requests.request("DELETE", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-#### Resposta ao deletar um upload
+Resposta ao deletar um upload
 
 Se a exclusão foi exitosa o `status_code` da resposta é `204` o que significa que foi processado com sucesso, porém não há conteúdo na resposta.
 
@@ -220,7 +220,7 @@ response = requests.request("GET", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-#### Resposta com todas as midias
+Resposta com todas as midias
 
 Se a conta possui conteúdos, a resposta será com a seguinte estrutura:
 
@@ -291,7 +291,7 @@ response = requests.request("POST", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-#### Resposta de Conteúdo Adicionado na Biblioteca
+Resposta de Conteúdo Adicionado na Biblioteca
 
 ```python
 {
@@ -340,7 +340,7 @@ response = requests.request("GET", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-#### Resposta para ver uma mídia
+Resposta para ver uma mídia
 
 Se a mídia existe, a resposta será com a seguinte estrutura:
 
@@ -427,7 +427,7 @@ response = requests.request("DELETE", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-#### Resposta ao deletar uma mídia
+Resposta ao deletar uma mídia
 
 Se a mídia foi deletada com sucesso, a resposta será com a seguinte estrutura:
 
@@ -493,7 +493,7 @@ response = requests.request("PUT", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-#### Resposta ao Alterar um Conteúdo
+Resposta ao alterar um Conteúdo
 
 ```python
 {

@@ -6,7 +6,12 @@ sort: 2
 
 Obter a lista dos grupos de usuários registrados na conta.
 
-```
+## GET
+
+endpoint: `https://api.4yousee.com.br/v1/users/groups`
+
+
+```python
 import requests
 import json
 
@@ -21,4 +26,26 @@ headers = {
 response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
+```
+
+Resposta para ver todos os usuários
+
+```json
+{
+  "results": [
+    {
+      "id": 2,
+      "name": "Administrator",
+      "description": "Group responsible for account management"
+    },
+    {
+      "id": 20,
+      "name": "Publishers",
+      "description": "Group responsible for publishing content."
+    }
+  ],
+  "total": 2,
+  "currentPage": 1,
+  "totalPages": 1
+}
 ```

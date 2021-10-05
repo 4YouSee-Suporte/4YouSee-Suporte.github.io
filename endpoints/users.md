@@ -36,7 +36,7 @@ Resposta com todos os usuarios
             "id": 2,
             "name": "alfonso",
             "username": "alfareiza",
-            "email": "alfareiza@gmail.com",
+            "email": "alf****@****.com",
             "group": {
                 "id": 2,
                 "name": "Administrador"

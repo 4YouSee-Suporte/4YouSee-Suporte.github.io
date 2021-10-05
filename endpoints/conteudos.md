@@ -32,37 +32,15 @@ response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
 ```
-<details>
-  <summary>Resposta para ver todas as midias!</summary>
+
+#### Resposta para ver todas as midias:
   
-  ```json
-    {
-    "results": [
-        {
-            "id": 11,
-            "name": "audifonos_samsung",
-            "description": "audifonos_samsung",
-            "file": "i_11.mp4",
-            "durationInSeconds": 10,
-            "categories": [
-                {
-                    "id": 11,
-                    "name": "Loja 1"
-                }
-            ],
-            "schedule": {
-                "startDate": null,
-                "endDate": null,
-                "times": []
-            }
-        }
-    ],
-    "total": 1,
-    "currentPage": 1,
-    "totalPages": 1
-}
-  ```
-</details>
+<script src="https://gist.github.com/Alfareiza/7a34c719dc144f058a4f189786dd127d.js"></script>
+
+#### Resposta v2.
+
+{% gist c08ee0f2726fd0e3909d %}
+
 
 ### POST
 
@@ -91,8 +69,7 @@ response = requests.request("POST", url, headers=headers, data=payload, files=fi
 print(response.text)
 ```
 
-<details>
-  <summary>Resposta ao carregar uma imagem</summary>
+#### Resposta ao carregar uma imagem
   
   ```
    {
@@ -100,7 +77,6 @@ print(response.text)
     "filename": "4yousee.png"
   }
   ```
-</details>
 
 #### Carregando um video
 
@@ -124,8 +100,7 @@ print(response.text)
 
 ```
 
-<details>
-  <summary>Resposta ao carregar um video</summary>
+#### Resposta ao carregar um video
   
   ```
    {
@@ -133,24 +108,21 @@ print(response.text)
     "filename": "4YouSee Colors.mp4"
   }
   ```
-</details>
 
 #### Erros
 
 Se o seguinte erro acontecer, você deve verificar a rota do arquivo.
 
-```alert
+```warning
 {"message":"Upload file is empty. Check the documentation for this resource for more information"}
 ```
 
 Se algum dos seguintes erros acontecerem, você deve verificar que está sendo enviado no header o `'Content-Type': 'application/x-www-form-urlencoded',`
 
-```alert
-
+```warning
 {"message":"File type not allowed. Check the documentation for this resource for more information"}
 
 {"message":"An unexpected error occurred","detail":"no decode delegate for this image format ' @ error\/constitute.c\/ReadImage\/504"}
-
 ````
 
 ### DEL

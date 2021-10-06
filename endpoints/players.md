@@ -1,5 +1,5 @@
 ---
-sort: 3
+sort: 5
 ---
 
 # Players
@@ -33,7 +33,7 @@ print(response.text)
 
 Cria um novo player
 
-endpoint: `https://api.4yousee.com.br/v1/players
+endpoint: `https://api.4yousee.com.br/v1/players`
 
 ```python
 import requests
@@ -132,7 +132,7 @@ Resposta ao adicionar um player
 
 Obtem a informação em detalhe de um player.
 
-endpoint: `https://api.4yousee.com.br/v1/players
+endpoint: `https://api.4yousee.com.br/v1/players`
 
 ```python
 import requests
@@ -208,7 +208,7 @@ Resposta para visualizar um player
 
 Atualiza um player
 
-endpoint: `https://api.4yousee.com.br/v1/players/{{playerId}}`
+endpoint: `https://api.4yousee.com.br/v1/players/{playerId}`
 
 ```python
 import requests
@@ -305,7 +305,7 @@ Resposta ao alterar um player
 
 Exclui um player
 
-endpoint: `https://api.4yousee.com.br/v1/players/{{playerId}}`
+endpoint: `https://api.4yousee.com.br/v1/players/{playerId}`
 
 ```python
 import requests

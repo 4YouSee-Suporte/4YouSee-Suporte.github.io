@@ -6,6 +6,100 @@ sort: 5
 
 Os players são os elementos responsáveis por definir o que vai ser estabelecido no 4yousee player.
 
+Os players possuim os seguintes parámetros:
+
+- `playerStatus` : O playerStatus é um dos objetos retornados pelo terminal do Player. Este objeto mostra o último contato do player com o servidor. Existem seis valores padrão possíveis. O valor do campo time representa o intervalo de tempo do último contato do player em minutos. Por exemplo: O playerStatus com o nome Online e tempo 10 significa que o último contato do player foi entre 0 e 10 minutos.:
+
+**Online**
+
+```json
+playerStatus: {
+    "id": 1,
+    "name": "Online",
+    "time": 10
+}
+```
+
+**Alert**
+
+```json
+playerStatus: {
+    "id": 2,
+    "name": "Alert",
+    "time": 20
+}
+```
+
+**Offline**
+
+```json
+playerStatus: {
+    "id": 3,
+    "name": "Offline",
+    "time": 30
+}
+```
+
+**Assistance needed**
+
+```json
+playerStatus: {
+    "id": 4,
+    "name": "Assistance needed",
+    "time": 1440
+}
+```
+
+**Local assist needed**
+
+```json
+playerStatus: {
+    "id": 5,
+    "name": "Local assist needed",
+    "time": 9999999
+}
+```
+
+**Never accessed**
+
+```json
+playerStatus: {
+    "id": 6,
+    "name": "Never accessed",
+    "time": 0
+}
+```
+
+- `playlists` : Um objeto que contém o ID da playlist associada ao player por dia da semana. A representação da semana é numérica e é feita da seguinte forma:
+
+  - "0": Domingo
+  - "1": Segunda-feira
+  - "2": Terça-feira
+  - "3": Quarta-feira
+  - "4": Quinta-feira
+  - "5": Sexta-feira
+  - "6": Sábado
+
+Por exemplo:
+
+```json
+"playlists": {
+    "0": 2,
+    "1": 3,
+    "2": 3,
+    "3": 3,
+    "4": 3,
+    "5": 3,
+    "6": 2
+}
+```
+
+- `platform` : Valor (string) que define qual plataforma o player poderá ser utilizado. Pode ser `LG`, `SAMSUNG`, `ANDROID` ou `4YOUSEE_PLAYER` (uso do player em linux ou windows)
+
+- `lastContactInMinutes` : Valor (inteiro) que define há quantos minutos que o servidor fez contato com o player.
+
+- `lastLogReceived` : Valor (Date) que determina quando foi a última vez que o player enviou os playlogs ao servidor.
+
 ## GET
 
 Obtem a lista de todos os players registrados na conta.

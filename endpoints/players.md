@@ -132,7 +132,7 @@ Resposta ao adicionar um player
 
 Obtem a informação em detalhe de um player.
 
-endpoint: `https://api.4yousee.com.br/v1/players`
+endpoint: `https://api.4yousee.com.br/v1/players/{playerId}`
 
 ```python
 import requests

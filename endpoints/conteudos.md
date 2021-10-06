@@ -92,12 +92,12 @@ print(response.text)
 
 Resposta ao carregar uma imagem
   
-  ```
-   {
+```json
+  {
     "id": "8e5e3ba750d619d6b827a96351ae33e9",
     "filename": "4yousee.png"
   }
-  ```
+```
 
 #### Carregando um video
 
@@ -123,12 +123,12 @@ print(response.text)
 
 Resposta ao carregar um video
   
-  ```
-   {
+ ```json
+  {
     "id": "0e8c712c92dfba83d5614b0fc1cdb8b1",
     "filename": "4YouSee Colors.mp4"
   }
-  ```
+```
 
 #### Erros
 
@@ -178,9 +178,9 @@ Se a exclusão foi exitosa o `status_code` da resposta é `204` o que significa 
 
 Se não, a resposta será a seguinte, com `status_code` igual a `404`:
 
-```
+```json
 {
-    "message": "Upload file not found"
+  "message": "Upload file not found"
 }
 ```
 
@@ -293,7 +293,7 @@ print(response.text)
 
 Resposta de Conteúdo Adicionado na Biblioteca
 
-```python
+```json
 {
   "id": 5,
   "name": "4YouSee Sample Media",
@@ -393,7 +393,7 @@ Se não existe a mídia, a resposta será a seguinte, com `status_code` igual a 
 
 ```json
 {
-    "message": "Media with ID 330 was not found"
+  "message": "Media with ID 330 was not found"
 }
 ```
 

@@ -6,6 +6,178 @@ sort: 6
 
 As playlists possuim a programação e ordem em que os conteúdos vão ser exibidos no 4YouSee Player.
 
+As playlists possuim os seguintes parámetros:
+
+- `items` : É um dos itens mais importantes da playlist. Juntos, `items` e `sequence` definem o que será reproduzido e a ordem. Cada item permitido tem um esquema específico que eles são:
+
+**media**
+
+```json
+{
+  "type": "media",
+  "id": 1
+}
+```
+
+**carousel** 
+
+```json
+{
+  "type": "carousel",
+  "id": 1,
+  "items": []
+}
+```
+
+**subPlaylist**
+
+```json
+ {
+    "type": "subPlaylist",
+    "id": 73,
+    "name": "Playlist Teste",
+    "sequence": [ 0 ],
+    "items": [
+              {
+                "type": "media",
+                "id": 80,
+                "name": "imagen_oficial_evento_",
+                "file": "i_80.png",
+                "durationInSeconds": 15,
+                "categories": [
+                                {
+                                  "id": 2,
+                                  "name": "Conteudos Verticais"
+                                }
+                              ]
+                }
+            ]
+}
+```
+
+**news**
+
+```json
+{
+  "type": "news",
+  "durationInSeconds": 10
+}
+```
+
+**layout**
+
+```json
+{
+  "type": "layout",
+  "id": 2
+}
+```
+
+**videowall**
+
+é uma grade composta por uma matriz de uma ou duas dimensões que representa a posição de cada tela em que cada vídeo será executado. É necessário que todos os itens da grade sejam uma mídia do tipo vídeo e com a mesma duração.
+
+O campo `abortIfError` informa ao Player se o videowall deve ser abortado em caso de erro.
+
+O campo `ignoreLayout` informa ao Player se o videowall deve ser ignorado no layout atual.
+
+```json
+{
+    "type": "videowall",
+    "abortIfError": false,
+    "ignoreLayout": false,
+    "grid": [
+        [
+            {
+                "type": "media",
+                "name": "conteudo teste 1",
+                "id": 4
+                "durationInSeconds": 20,
+                "categories": [
+                            {
+                                "id": 27,
+                                "name": "random_"
+                            }
+                        ]
+            },
+            {
+               "type": "media",
+                "name": "conteudo teste 2",
+                "id": 15
+                "durationInSeconds": 20,
+                "categories": [
+                            {
+                                "id": 27,
+                                "name": "random_"
+                            }
+                        ]
+            }
+        ],
+        [
+            {
+               "type": "media",
+                "name": "conteudo teste 3",
+                "id": 36
+                "durationInSeconds": 20,
+                "categories": [
+                            {
+                                "id": 27,
+                                "name": "random_"
+                            }
+                        ]
+            },
+            {
+                "type": "media",
+                "name": "conteudo teste 4",
+                "id": 44
+                "durationInSeconds": 20,
+                "categories": [
+                            {
+                                "id": 27,
+                                "name": "random_"
+                            }
+                        ]
+            }
+        ]
+    ]
+}
+```
+
+No exemplo acima, o Video wall tem formato 2x2 com 4 telas.
+
+```tip
+Os itens numa playlist não podem ser repetidos, exceto videoWall.
+```
+
+**sequence**
+
+Uma lista de inteiros com a sequencia de itens começando com '0'. Todos os itens listados em itens devem ser representados na sequência.
+
+Por exemplo: Se a lista de itens contém 4 elementos, os valores possíveis para a sequência são 0, 1, 2 e 3. A posição do item na sequência pode ser repetida quantas vezes forem necessárias para compor a ordem da lista de reprodução.
+
+```json
+// (...)
+"items": [
+  {
+    //(Some item with index 0)
+  },
+  {
+    //(Another item with index 1)
+  },
+  {
+    //(Another item with index 2)
+  },
+  {
+    //(Another item with index 3)
+  }
+],
+"sequence" [
+    0,1,2,3,1,2,1,0,0
+]
+//(...)
+```
+
+
 ## GET
 
 Obtem a lista de todas as playlists

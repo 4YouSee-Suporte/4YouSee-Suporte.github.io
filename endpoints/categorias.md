@@ -36,9 +36,9 @@ Cria uma nova categoria. É possível criar uma categoria de primeiro nível ou 
 endpoint: `https://api.4yousee.com.br/v1/medias/categories/`
 
 Atributos do Payload
-- name (String, obrigatório) Nome de exibição da categoria/subcategoria
-- description (String) - Descrição detalhada da categoria
-- parent (Number) - Quando informado cria uma subcategoria
+- `name` (String, obrigatório) Nome de exibição da categoria/subcategoria
+- `description` (String) - Descrição detalhada da categoria
+- `parent` (Number) - Quando informado cria uma subcategoria
 
 ```python
 import requests
@@ -105,37 +105,6 @@ Se a categoría não existe, a resposta com `status_code` igual a `404` será a 
 }
 ```
 
-### POST
-
-Cria uma nova categoria. É possível criar uma categoria de primeiro nível ou uma subcategoria
-
-endpoint: `https://api.4yousee.com.br/v1/medias/categories/`
-
-Atributos do Payload
-- name (String, obrigatório) Nome de exibição da categoria/subcategoria
-- description (String) - Descrição detalhada da categoria
-- parent (Number) - Quando informado cria uma subcategoria
-
-```python
-import requests
-import json
-
-url = "https://api.4yousee.com.br/v1/medias/categories/"
-
-payload = json.dumps({
-  "name": "Marketing",
-  "description": "Content related to market of company",
-  "parent": 24
-})
-headers = {
-  'Content-Type': 'application/json'
-}
-
-response = requests.request("POST", url, headers=headers, data=payload)
-
-print(response.text)
-```
-
 ### PUT
 
 Atualiza uma categoría. É possível atualizar o nome, a descrição, o pai da categoria, updateflow, sequence e autoShuffle.
@@ -143,12 +112,12 @@ Atualiza uma categoría. É possível atualizar o nome, a descrição, o pai da 
 endpoint: `https://api.4yousee.com.br/v1/medias/categories/{{mediaCategoryId}}`
 
 Atributos do Payload
-- name (String, opcional) Nome de exibição da categoria.
-- description (String, opcional) - Descrição detalhada da categoria.
-- parent (Número ou null, opcional) - Quando é enviado, converte a categoria em subcategoria da categoria pai informado. Se o valor for **null**, ele converte a subcategoria em uma categoria de primeiro nível.
-- updateflow (Número, opcional) - 1: para reiniciar o carrossel após a atualização do carrossel; 2: Não reinicie após a atualização do carrossel.
-- sequence (Lista, opcional) - Lista (Array) que contém os IDs de mídia na ordem em que deseja que apareçam no carrossel.
-- autoShuffle (booleano, opcional) - Defina o valor de uma opção que embaralha seu carrossel toda vez que termina sua execução.
+- `name` (String, opcional) Nome de exibição da categoria.
+- `description` (String, opcional) - Descrição detalhada da categoria.
+- `parent` (Número ou null, opcional) - Quando é enviado, converte a categoria em subcategoria da categoria pai informado. Se o valor for **null**, ele converte a subcategoria em uma categoria de primeiro nível.
+- `updateflow` (Número, opcional) - 1: para reiniciar o carrossel após a atualização do carrossel; 2: Não reinicie após a atualização do carrossel.
+- `sequence` (Lista, opcional) - Lista (Array) que contém os IDs de mídia na ordem em que deseja que apareçam no carrossel.
+- `autoShuffle` (booleano, opcional) - Defina o valor de uma opção que embaralha seu carrossel toda vez que termina sua execução.
 
 ```python
 import requests

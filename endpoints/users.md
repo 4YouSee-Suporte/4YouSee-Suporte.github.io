@@ -4,6 +4,8 @@ sort: 1
 
 # Users
 
+Um usuário é quem possui um acesso na plataforma de 4yousee manager.
+
 ## GET 
 
 ### Todos os usuários

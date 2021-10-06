@@ -4,9 +4,11 @@ sort: 2
 
 # Users Groups
 
-Obter a lista dos grupos de usuários registrados na conta.
+Todo usuário deve possuir um grupo de usuário. Nele é possível estabelecer quais módulos do sistema o usuário possui acesso.
 
 ## GET
+
+Obter a lista dos grupos de usuários registrados na conta.
 
 endpoint: `https://api.4yousee.com.br/v1/users/groups`
 

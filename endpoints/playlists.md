@@ -91,7 +91,7 @@ O campo `ignoreLayout` informa ao Player se o videowall deve ser ignorado no lay
             {
                 "type": "media",
                 "name": "conteudo teste 1",
-                "id": 4
+                "id": 4,
                 "durationInSeconds": 20,
                 "categories": [
                             {
@@ -103,7 +103,7 @@ O campo `ignoreLayout` informa ao Player se o videowall deve ser ignorado no lay
             {
                "type": "media",
                 "name": "conteudo teste 2",
-                "id": 15
+                "id": 15,
                 "durationInSeconds": 20,
                 "categories": [
                             {
@@ -117,7 +117,7 @@ O campo `ignoreLayout` informa ao Player se o videowall deve ser ignorado no lay
             {
                "type": "media",
                 "name": "conteudo teste 3",
-                "id": 36
+                "id": 36,
                 "durationInSeconds": 20,
                 "categories": [
                             {
@@ -129,7 +129,7 @@ O campo `ignoreLayout` informa ao Player se o videowall deve ser ignorado no lay
             {
                 "type": "media",
                 "name": "conteudo teste 4",
-                "id": 44
+                "id": 44,
                 "durationInSeconds": 20,
                 "categories": [
                             {
@@ -153,7 +153,7 @@ Os itens numa playlist não podem ser repetidos, exceto videoWall.
 
 Uma lista de inteiros com a sequencia de itens começando com '0'. Todos os itens listados em itens devem ser representados na sequência.
 
-Por exemplo: Se a lista de itens contém 4 elementos, os valores possíveis para a sequência são 0, 1, 2 e 3. A posição do item na sequência pode ser repetida quantas vezes forem necessárias para compor a ordem da lista de reprodução.
+Por exemplo: Se a lista de itens contém 4 elementos, os valores possíveis para a sequência são `0`, `1`, `2` e `3`. A posição do item na sequência pode ser repetida quantas vezes forem necessárias para compor a ordem da lista de reprodução.
 
 ```json
 // (...)
